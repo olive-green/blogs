@@ -1,0 +1,12 @@
+<div class="mb-2 form-group">
+    <label for="title">Title</label>
+    <input required type="text" class="form-control" value="<%= article.title %>"id="title" name="title">
+</div>
+<div class="mb-2 form-group">
+    <label for="description">Description</label>
+    <textarea  name="description" class="form-control" id="description"><%= article.description %></textarea>
+</div>
+
+
+<a href="/" class="btn btn-danger">Cancel</a>
+<button type="submit" class="btn btn-success">Save</button>
