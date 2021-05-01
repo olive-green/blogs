@@ -5,34 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./../../public/newArticle.css" rel="stylesheet" type="text/css">
+    <link href="./newArticle.css" rel="stylesheet" type="text/css">
     <title>Blog</title>
 </head>
 
 <body>
 
+    <!-- <div class="container">
+        <h1 class="mt-2 mb-4">New Article</h1>
+        <form action="/articles" method="POST">
+            <%- include('_form_fields') %>
+        </form>
+    </div> -->
     <section>
         <div class="container">
             <div class="user articleBx">
                 <div class="formBx">
-                    
-                    <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
+                    <form action="/articles" method="POST">
                         <h2>Write an Article</h2>
+                    
                         <label  class="labels"  for="title">Title</label>
-                        <input required type="text" class="" value="<%= article.title %>" id="title" name="title">
+                        <input required type="text" class="" value="" id="title" name="title">
                         
-                        <label  class="labels" for="Shortdescription">Short Description</label>
-                        <input required type="text" class="" value="<%= article.Shortdescription %>" id="Shortdescription" name="Shortdescription">
+                        <label  class="labels" for="short-description">Short Description</label>
+                        <input required type="text" class="" value="" id="short-description" name="short-description">
                         
-                        <label class="labels"  for="Fulldescription">Full Description</label>
-                        <textarea name="Fulldescription" class="" id="Fulldescription"><%= article.Fulldescription %></textarea>
+                        <label class="labels"  for="description">Full Description</label>
+                        <textarea name="description" class="" id="description"></textarea>
                         
                         <label  class="labels" for="social">Any Social Profile</label>
-                        <input  type="text" class="" value="<%= article.social %>" id="social" name="social">
+                        <input required type="text" class="" value="" id="social" name="social">
 
                         
                         <label  class="labels" for="image">Enter Image URL:</label>
-                        <input type="text" class="" id="image" name="image" value="<%= article.image %>" required>
+                        <input type="text" class="" id="image" name="image" required>
 
                         <div class="control-buttons">
                             

@@ -5,12 +5,19 @@ const articleSchema= new mongoose.Schema({
         type:String,
         required:true
     },
-    description:{
-        type:String,
+    Fulldescription:{
+        type:String
     },
     createdAt:{
         type:Date,
         default: Date.now
+    },
+    Shortdescription:{
+        type:String,
+        required:true
+    },
+    social:{
+        type:String
     },
     image:{
         type:String,
