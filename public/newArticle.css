@@ -40,7 +40,7 @@ section .container .user{
 
 section .container .user .formBx{
     position: relative;
-    background: #fff;
+    background:#6df1a2;
     padding:40px;
     transition:0.5s;
 }
@@ -69,7 +69,9 @@ section .container .user .formBx input{
 
 section .container .user .formBx textarea{
     width:100%;
+    padding:3px;
     height: 60px;
+
 }
 
 .control-buttons{
