@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= pageTitle %></title>
+  
+  <!-- You MUST include jQuery before Fomantic -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.js"></script>
+  <!-- Font Awesome CDN -->
+   <script src="https://kit.fontawesome.com/efd71d3ed7.js" crossorigin="anonymous"></script>
+   <!--Google Fonts -->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!--Custom Stylesheet -->
+    <link rel="stylesheet" href="./../header.css">
+    <link rel="stylesheet" href=<%= cssFile %>>
+</head>
+<style>
+  .toc.item {
+    font-size: 1.3rem !important;
+    display: none !important;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 10px 4px !important;
+    color: black;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .logo {
+      margin: 6px auto !important;
+    }
+
+    .toc.item {
+      display: block !important;
+    }
+
+    #topMenu .right.menu,
+    #followingMenu .right.menu {
+      display: none !important;
+    }
+
+    .logoText {
+      display: none;
+    }
+  }
+  #style1,#style2,#style3{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #style2,#style3{
+    display:none;
+  }
+</style>
+
+<body>
+
+
+  
+  <div class="ui tabular menu" id="followingMenu" style="
+        margin: 0;
+        background-color: white;
+        box-shadow: 0px 0px 2px 0px #999999 !important;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        font-size: 1.1rem;
+        border: none;
+        ">
+    <a class="toc item left">
+      <i class="sidebar icon"></i>
+    </a>
+    <a href="/" class="logo">
+      <img src="images/logo.png" alt="logo" style="width: 60px;" />
+      <strong class="logoText" style="font-size: 1.5rem;">SSB</strong>
+    </a>
+    <div class="right menu">
+      <div class="i simple dropdown item ui large secondary tertiary button">
+        Written Examinations
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a href="/written/nda" class="item">NDA</a>
+          <a href="/written/cds" class="item">CDS/OTS</a>
+          <a href="/written/afcat" class="item">AFCAT</a>
+          <a href="/written/acc" class="item">ACC</a>
+        </div>
+      </div>
+      <a href="/men" class="item ui large secondary tertiary button">
+        SSB Interview
+      </a>
+      <a href="/contribute" class="item ui large secondary tertiary button">
+        Practice
+      </a>
+      <div class="i simple dropdown item ui large secondary tertiary button">
+        Officier Entries
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="/men">For Men</a>
+          <a href="/women" class="item">For Women</a>
+          <a href="" class="item">Militiary Nursing Service</a>
+          <a href="" class="item">Army Dental Corps</a>
+        </div>
+      </div>
+      <a href="/contribute" class="item ui large secondary tertiary button">
+        Achievers
+      </a>
+      <a href="/community" class="item ui large secondary tertiary button">
+        Interview Tips
+      </a>
+      <a href="/contribute" class="item ui large secondary tertiary button">
+        Blogs
+      </a>
+
+      <!-- hidden trigger -->
+      <a class="toc item right" style="visibility: hidden;">
+        <i class="sidebar icon"></i>
+      </a>
+    </div>
+
+  </div>
+  </div>
+
+
+  <!-- Sidebar Menu -->
+  <div class="ui vertical sidebar menu">
+    <a class="item" href="/blogs">Blogs</a>
+    <a class="item" href="/resources">Resources</a>
+    <a class="item" href="/community">Community</a>
+    <a class="item" href="/contribute">Contribute</a>
+
+  </div>
+  <!-- Sidebar menu ends  -->
