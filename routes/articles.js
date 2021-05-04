@@ -6,17 +6,22 @@ var router=express.Router();
 
 
 router.get('/new',(req,res)=>{
-    res.render("articles/newArticle",{article: new Article()});
+    let pageTitle="New Articles";
+    let cssName = "./../newArticle.css";
+    res.render("articles/newArticle",{article: new Article(),pageTitle: pageTitle,cssFile: cssName});
 })
 
-router.get('/:id', async (req,res)=>{
+router.get('/:id', async (req, res) => {
+    let pageTitle = "Blog";
+    let cssName = "./../showblog.css";
     // res.send(req.params.id);
     let article= await Article.findById(req.params.id);
         if(article == null)
         {
             res.redirect('/');
-        }
-      res.render('articles/show',{article:article});  
+    }
+    console.log(article);
+      res.render('articles/show',{article:article,pageTitle,cssFile: cssName});  
 })
 
 router.get('/edit/:id', async (req,res)=>{
