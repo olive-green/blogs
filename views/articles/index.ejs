@@ -1,31 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <title>Blog</title>
+<%- include("./../partials/header") %>
+
     <style>
       body{
         box-sizing: border-box;
         background-color:#c6e9fd;
+        background-color:white;
+       }
+       .container{
+         margin-bottom: 100px;
+       }
+       .blog-heading{
+         font-size:3.5rem;
+         color:#fa9905;
+         font-family:cursive;
+         text-align:center;
+       }
+      .blogGrid{
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 50px;
+        margin-bottom:40px;
+       /* background-color: #fa9905;
+        background-color: #011c39; */
+        border:4px solid #fa9905;
+        border-radius:15px;
+        padding: 30px 60px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+      }
+      .new-article-section{
+        margin-top:50px;
+        justify-content: center;
+      }
+      .new-article-btn{
+        border:2px solid red;
+        display:block;
+        margin:20px auto;
+        width:200px;
+        padding:10px;
+        font-size:1.5rem;
+        border-radius: 7px;
+        font-family: sans-serif;
+        
+      }
+      a{
+        color:#011c39;
+      }
+      .new-article-icon{
+         color:red;
+      }
+      .new-article-text{
+        margin-left:30px;
       }
      
       /* Cards */
         .card{
+          position:relative;
           width: 20rem;
-          height: 26rem;
+          height: 28rem;
           display: inline-block;
+          background-color: #393e46;
           background-color: white;
+          color:#fa9905;
           margin:40px;
           box-shadow: 2px 1px 10px black;
           border-top-right-radius: 5px;
           border-top-left-radius: 5px;
         }
-
+        .image{
+          height:14rem;
+        }
         .image img{
           width: 100%;
+          height:14rem;
           border-top-right-radius: 5px;
           border-top-left-radius: 5px;
         }
@@ -33,13 +82,21 @@
           text-align: center;
           margin-top: 0.3rem;
           padding: 5px;
+          height:5rem;
+          font-size:2rem;
+          font-weight:1000;
+          font-family:monospace;
         }
         .des{
           text-align: center;
           margin-top: 3px;
+          height: 9rem;
         }
         .readMore{
-          margin-top: 3.5rem;
+          position:absolute;
+          bottom:10px;
+          right:5rem;
+          font-size:1.3rem;
           text-decoration: none;
           background-color: white;
           border: 2px solid black;
@@ -50,8 +107,8 @@
           border-radius: 5px;
           cursor: pointer;
           width:10rem;
-
-        }
+          text-align: center;
+         }
         .readMore:hover{
           background-color: black;
           color: white;
@@ -61,13 +118,11 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-2 mb-3">Blog Articles</h1>
-        <a href="/articles/new" class="btn btn-success">New Article</a>
-
+      <h1 class="blog-heading" style="margin-top:70px;">Blog Articles</h1>
         <!-- articles -->
-        <div class="row row-cols-1 row-cols-md-3 g-4">  
+        <div class="blogGrid">  
         <% articles.forEach(article=>{ %>
-                <div class="col"
+                <div class="blogBox"
               
                 <!-- Apoorv Card design -->
                 <div class="card">
@@ -84,9 +139,12 @@
             </div>
         <% }) %>
         </div>
+        <!-- New Article Btn -->
+        <div class="new-article-section">
+          <h2 style="text-align:center;font-size:2.3rem;color:red;">You can Write too!</h2>
+        <a href="/articles/new" class="new-article-btn"><span class="new-article-icon"><i class="fa fa-plus" aria-hidden="true"></i></span><span class="new-article-text">New Article</span></a>
+       </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-</body>
-</html>
+    <%- include("./../partials/footer") %>
+  

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/newArticle.css" rel="stylesheet" type="text/css">
+    <link href="./../../public/newArticle.css" rel="stylesheet" type="text/css">
     <title>Blog</title>
 </head>
 
@@ -17,7 +17,7 @@
                 <div class="formBx">
                     
                     <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
-                        <h2>Edit</h2>
+                        <h2>Write an Article</h2>
                         <label  class="labels"  for="title">Title</label>
                         <input required type="text" class="" value="<%= article.title %>" id="title" name="title">
                         
