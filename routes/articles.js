@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
         {
             res.redirect('/');
     }
-    console.log(article);
+    // console.log(article);
       res.render('articles/show',{article:article,pageTitle,cssFile: cssName});  
 })
 
