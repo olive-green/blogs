@@ -38,8 +38,9 @@ app.get('/',async (req,res)=>{
 
 
 //Routes for post request from client 
-app.post("/api/comments",(req,res)=>{
+app.post("/comments/:postId",(req,res)=>{
     const comment= new Comment({
+        postId:req.body.postId,
         username:req.body.username,
         comment:req.body.comment
     })
@@ -50,8 +51,10 @@ app.post("/api/comments",(req,res)=>{
 })
 
 //creating a get route for fetching all comments
-app.get("/api/comments",(req,res)=>{
-    Comment.find().then(function(comments){
+app.get("/comments/:postId",(req,res)=>{
+    let postId=req.params.postId
+    // console.log(postId)
+    Comment.find({postId:postId}).then(function(comments){
         res.send(comments)
     })
 })
@@ -68,6 +71,9 @@ let io=require("socket.io")(server)
 
 io.on("connection",(socket)=>{
     console.log(`new connection ${socket.id}`)
+
+    
+
     // Recieve event
     socket.on("comment",(data)=>{
         // console.log(data)
