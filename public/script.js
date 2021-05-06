@@ -6,9 +6,13 @@ do{
 
 }while(!username)
 
+
+(function(){
+    
 const textArea=document.querySelector("#textarea")
 const submitBtn=document.querySelector("#submitBtn")
 const commentBox=document.querySelector(".comment_box")
+const postId=document.getElementById("postId").value
 
 submitBtn.addEventListener("click",(e)=>{
     e.preventDefault()
@@ -20,6 +24,7 @@ submitBtn.addEventListener("click",(e)=>{
 })
 
 
+
 function postComment(comment)
 {
     //Append to dom
@@ -28,6 +33,7 @@ function postComment(comment)
 
     //append to dom
     let data={
+        postId:postId,
         username:username,
         comment:comment
     }
@@ -117,7 +123,7 @@ function  syncWithDb(data){
     const headers={
         "Content-Type":"application/json"
     }
-    fetch("/api/comments",{method:"POST",body: JSON.stringify(data),headers}) //in this fetch we have second argument where we are sending data in the form of JSON
+    fetch("/comments/:postId",{method:"POST",body: JSON.stringify(data),headers}) //in this fetch we have second argument where we are sending data in the form of JSON
     .then(response => response.json()) //here we are recieving response in string format so we converted it into json
     .then(result =>{
         console.log(result)
@@ -128,7 +134,7 @@ function  syncWithDb(data){
 // fetching comments
 function fetchComments()
 {
-    fetch("/api/comments") //by default fetch's method is get
+    fetch("/comments/:postId") //by default fetch's method is get
     .then(res =>res.json())
     .then(result=>{
         result.forEach(comment => {
@@ -137,5 +143,7 @@ function fetchComments()
         });
     })
 }
+})();
 
-window.onload=fetchComments;
+
+// window.onload=fetchComments;
