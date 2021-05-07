@@ -55,6 +55,7 @@ app.get("/comments/:postId",(req,res)=>{
     let postId=req.params.postId
     // console.log(postId)
     Comment.find({postId:postId}).then(function(comments){
+        console.log(comments)
         res.send(comments)
     })
 })
