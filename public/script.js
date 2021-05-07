@@ -7,7 +7,7 @@ do{
 }while(!username)
 
 
-(function(){
+
     
 const textArea=document.querySelector("#textarea")
 const submitBtn=document.querySelector("#submitBtn")
@@ -134,7 +134,8 @@ function  syncWithDb(data){
 // fetching comments
 function fetchComments()
 {
-    fetch("/comments/:postId") //by default fetch's method is get
+    console.log("function called");
+    fetch(`/comments/${postId}`) //by default fetch's method is get
     .then(res =>res.json())
     .then(result=>{
         result.forEach(comment => {
@@ -142,8 +143,7 @@ function fetchComments()
             appendToDom(comment);
         });
     })
-}
-})();
+};
 
 
-// window.onload=fetchComments;
+window.onload=fetchComments();
