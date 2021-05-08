@@ -31,29 +31,15 @@ router.get('/edit/:id', async (req,res)=>{
 })
 
 
-router.post('/',async (req,res)=>{
-    let article= new Article({
-        title:req.body.title,
-        Shortdescription:req.body.Shortdescription,
-        Fulldescription:req.body.Fulldescription,
-        social:req.body.social,
-        image:req.body.image
-    })
+router.post('/',async (req,res,next)=>{
+    req.article= new Article();
+    next();
+},saveArticleAndRedirect("newArticle"))
 
-    try{
-        article= await article.save()
-        res.redirect(`/articles/${article.id}`)
-    }
-    catch(err){
-        console.log(err)
-        res.render('articles/newArticle',{article:article})
-    }
-})
-
-router.put('/:id',(req,res,next)=>{
-    req.article= new Article()
+router.put('/:id',async (req,res,next)=>{
+    req.article= await Article.findById(req.params.id);
     next()
-},saveArticleAndRedirect('new'))
+},saveArticleAndRedirect('edit'))
 
 
 function saveArticleAndRedirect(path){
@@ -72,7 +58,7 @@ function saveArticleAndRedirect(path){
         }
         catch(err){
             console.log(err)
-            res.render('articles/${path}',{article:article})
+            res.render(`articles/${path}`,{article:article})
         }   
     }
 }
