@@ -16,12 +16,13 @@
         </div>
     </div>
     <!-- edit section -->
-    <a href="/" class="btn btn-secondary ">All Articles</a>
+    <div class="control-buttons " style="margin-top: 20px;padding-left: 74px;">
+        <a href="/" class="btn btn-secondary ">All Articles</a>
     <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
     <form action="/articles/<%= article.id %>?_method=DELETE"  method="POST">
         <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
     </form>
-        
+    </div>
         
    
 
@@ -55,30 +56,7 @@
             <div class="col-md-12">
                 <div class="typing text-success" style="color:#09c76f"></div>
                 <ul class="comment_box">
-                    <!-- <li class="comment">
-                        <div class="card border-light mb-3">
-                            <div class="card-body">
-                                <h5>Pankaj Rathore</h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, veritatis veniam! Doloribus dicta voluptas nobis placeat ea, minima obcaecati eos!</p>
-                            </div>
-                            <div>
-                                <img src="" alt="">
-                                <small>12:30 am</small>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="comment">
-                        <div class="card border-light mb-3">
-                            <div class="card-body">
-                                <h5>Pankaj Rathore</h5>
-                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore, veritatis veniam! Doloribus dicta voluptas nobis placeat ea, minima obcaecati eos!</p>
-                            </div>
-                            <div>
-                                <img src="" alt="">
-                                <small>12:30 am</small>
-                            </div>
-                        </div>
-                    </li> -->
+                   <!-- data come from script.js -->
                 </ul>
             </div>
         </div>
