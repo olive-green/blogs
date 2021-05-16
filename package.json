@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon app.js",
-    "start":"node app.js"
+    "start": "node app.js"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/olive-green/blogs.git"
   },
@@ -15,11 +15,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-session": "^1.4.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "https-proxy-agent": "^5.0.0",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",
     "mongoose": "^5.12.5",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
     "socket.io": "^4.0.1"
   },
   "devDependencies": {

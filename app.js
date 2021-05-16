@@ -1,17 +1,23 @@
 const express=require("express")
 const app=express()
 const articleRouter=require("./routes/articles")
+const authRoutes=require("./routes/auth-routes");
 const Comment=require("./models/comment")
 const mongoose=require('mongoose')
 const Article=require('./models/article.js')
 const methodOverride=require("method-override");
+const keys=require("./config/keys");
+const passport=require("passport")
+//importing passport-setup.js to run google strategy
+const passportSetup=require("./config/passport-setup");
+const cookieSession=require("cookie-session")
+
 const port= process.env.PORT || 3000
 
 
-// user:photon
-// password:gKvkkkktZjg6PebF
 //connect database
-mongoose.connect("mongodb+srv://photon:gKvkkkktZjg6PebF@cluster0.82akh.mongodb.net/blogs?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})
+// mongoose.connect("mongodb+srv://pankaj:snSC0vbIgRWi3pme@cluster0.82akh.mongodb.net/blogs?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect(keys.mongodb.dbURL,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>console.log("database connected successfully"))
 .catch((err)=>console.log(err))
 
@@ -25,15 +31,51 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(methodOverride("_method"))
 
-app.get('/',async (req,res)=>{
+
+//setting cookies
+app.use(cookieSession({
+    maxAge:24*60*60*1000,
+    keys:[keys.session.key] //import encrypted key from keys
+}))
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/articles',articleRouter);
+app.use("/auth",authRoutes);
+
+//authCheck function
+const authCheck=(req,res,next)=>{
+    if(!req.user){
+        //if user is not logged in
+        res.redirect("/login")
+    }
+    else
+    {
+        next();
+    }
+}
+app.get('/',authCheck,async (req,res)=>{
 
     const articles=await Article.find();
     let pageTitle = "Blogs";
     let cssName = "header.css";
 
-    res.render("articles/index",{articles:articles,pageTitle: pageTitle,cssFile: cssName})
+    res.render("articles/index",{articles:articles,pageTitle: pageTitle,cssFile: cssName,user:req.user})
 });
 
+app.get('/login',(req,res)=>{
+    let pageTitle="Login";
+    res.render("login",{pageTitle:pageTitle});
+});
+
+
+
+//profile route
+// app.get("/profile",authCheck,(req,res)=>{
+//     res.render("articles/index",{user:req.user});
+// })
 
 
 
@@ -61,7 +103,6 @@ app.get("/comments/:postId",(req,res)=>{
 })
 
 
-app.use('/articles',articleRouter);
 
 
 const server=app.listen(port,()=>{
