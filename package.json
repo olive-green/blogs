@@ -18,6 +18,7 @@
     "cookie-session": "^1.4.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "https-proxy-agent": "^5.0.0",
     "method-override": "^3.0.0",
     "moment": "^2.29.1",

@@ -1,10 +1,5 @@
-let username
 let socket=io()
 
-do{
-    username=prompt("enter your name : ")
-
-}while(!username)
 
 
 
@@ -13,6 +8,8 @@ const textArea=document.querySelector("#textarea")
 const submitBtn=document.querySelector("#submitBtn")
 const commentBox=document.querySelector(".comment_box")
 const postId=document.getElementById("postId").value
+const username=document.getElementById("userName").value
+
 
 submitBtn.addEventListener("click",(e)=>{
     e.preventDefault()

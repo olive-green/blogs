@@ -4,14 +4,25 @@ const Article=require('./../models/article.js');
 var router=express.Router();
 
 
+//authCheck function
+const authCheck=(req,res,next)=>{
+    if(!req.user){
+        //if user is not logged in
+        res.redirect("/login")
+    }
+    else
+    {
+        next();
+    }
+}
 
-router.get('/new',(req,res)=>{
+router.get('/new',authCheck,(req,res)=>{
     let pageTitle="New Articles";
     let cssName = "./../newArticle.css";
-    res.render("articles/newArticle",{article: new Article(),pageTitle: pageTitle,cssFile: cssName});
+    res.render("articles/newArticle",{article: new Article(),pageTitle: pageTitle,cssFile: cssName,user:req.user});
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', authCheck,async (req, res) => {
     let pageTitle = "Blog";
     let cssName = "./../showblog.css";
     // res.send(req.params.id);
@@ -21,13 +32,13 @@ router.get('/:id', async (req, res) => {
             res.redirect('/');
     }
     // console.log(article);
-      res.render('articles/show',{article:article,pageTitle,cssFile: cssName});  
+      res.render('articles/show',{article:article,pageTitle,cssFile: cssName,user:req.user});  
 })
 
-router.get('/edit/:id', async (req,res)=>{
+router.get('/edit/:id',authCheck, async (req,res)=>{
     // res.send(req.params.id);
     let article= await Article.findById(req.params.id);
-   res.render('articles/edit',{article:article});  
+   res.render('articles/edit',{article:article,user:req.user});  
 })
 
 

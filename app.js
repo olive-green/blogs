@@ -72,11 +72,6 @@ app.get('/login',(req,res)=>{
 
 
 
-//profile route
-// app.get("/profile",authCheck,(req,res)=>{
-//     res.render("articles/index",{user:req.user});
-// })
-
 
 
 //Routes for post request from client 
@@ -93,7 +88,7 @@ app.post("/comments/:postId",(req,res)=>{
 })
 
 //creating a get route for fetching all comments
-app.get("/comments/:postId",(req,res)=>{
+app.get("/comments/:postId",authCheck,(req,res)=>{
     let postId=req.params.postId
     // console.log(postId)
     Comment.find({postId:postId}).then(function(comments){

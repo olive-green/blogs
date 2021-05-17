@@ -338,7 +338,8 @@ g<%- include("./../partials/header") %>
 
   <body>
     <div class="container">
-      <h1 class="blog-heading" style="margin-top:70px;">Welcome <%=user.username%><br> Blog Articles</h1>
+      <h1 class="blog-heading" style="margin-top:70px;">Welcome <%= user.username %><br> Blog Articles</h1>
+      <div><a href="/auth/logout">Logout</a></div>
         <!-- articles -->
         <div class="blogGrid">  
         <% articles.forEach(article=>{ %>
