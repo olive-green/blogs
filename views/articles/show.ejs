@@ -7,12 +7,12 @@
 
         <div class="top-section">
         <div class="author-section" >
-                <img src="https://avatars.githubusercontent.com/u/56161073?v=4" class="author-image">
+                <img src="<%= article.profileImg %>" class="author-image">
         </div>
           <div class="date-section" style="margin-left:30px;">
             <h3 class="article-title"><span style="text-transform: capitalize;"><%= article.title %></span>
-            <br><span style="color:grey;">by </span><strong style="color:blue;font-size:1.5rem;">Aman Dixit</strong> 
-            <span style="color:green;font-size:1.2rem;"><%= article.createdAt.toLocaleDateString() %></span></h3>
+            <br><span style="color:grey;">by </span><strong style="color:blue;font-size:1.5rem;"><%= article.author %></strong> 
+            <span style="color:green;font-size:1.2rem;"><%= article.createdAt.toLocaleString() %></span></h3>
         </div>
     </div>
     <!-- edit section -->
