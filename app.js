@@ -6,13 +6,14 @@ const Comment=require("./models/comment")
 const mongoose=require('mongoose')
 const Article=require('./models/article.js')
 const methodOverride=require("method-override");
+const cors=require('cors')
 const keys=require("./config/keys");
 const passport=require("passport")
 //importing passport-setup.js to run google strategy
 const passportSetup=require("./config/passport-setup");
 const cookieSession=require("cookie-session")
 
-const port= process.env.PORT || 3000
+const port= process.env.PORT || 5000
 
 
 //connect database
@@ -26,7 +27,7 @@ app.use(express.json())
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-
+app.use(cors())
 app.use(express.urlencoded({extended:false}));
 
 app.use(methodOverride("_method"))
