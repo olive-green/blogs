@@ -15,6 +15,17 @@ const authCheck=(req,res,next)=>{
         next();
     }
 }
+/* Rest Api for frontend */
+router.get('/getBlogs', async (req, res) => {
+    console.log("get request made")
+    const articles=await Article.find();
+    console.log(articles)
+    res.status(200).json({
+        success:true,
+        count:articles.length,
+        data:articles
+    })
+})
 
 router.get('/new',authCheck,(req,res)=>{
     let pageTitle="NewArticles";
