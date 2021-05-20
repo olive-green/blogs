@@ -13,7 +13,7 @@ const passport=require("passport")
 const passportSetup=require("./config/passport-setup");
 const cookieSession=require("cookie-session")
 
-const port= process.env.PORT || 5000
+const port= process.env.PORT || 3000
 
 
 //connect database
