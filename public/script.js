@@ -60,6 +60,7 @@ function appendToDom(data)
             </div>
             <div>
                 <img src="" alt="">
+                <small>${moment(data.date).format('YYYY-MM-DD')}</small>
                 <small>${moment(data.time).format("LT")}</small>
             </div>
         </div>

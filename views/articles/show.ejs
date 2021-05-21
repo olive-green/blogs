@@ -18,10 +18,12 @@
     <!-- edit section -->
     <div class="control-buttons " style="margin-top: 20px;padding-left: 74px;">
         <a href="/" class="btn btn-secondary ">All Articles</a>
-    <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+        <% if(article.googleId==user.googleId){ %>
+            <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
     <form action="/articles/<%= article.id %>?_method=DELETE"  method="POST">
         <input type="submit" class="btn btn-danger mt-2 mb-4" value="DELETE">
     </form>
+       <% } %>
     </div>
         
    

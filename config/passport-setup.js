@@ -28,7 +28,7 @@ passport.use(new GoogleStrategy({
     clientSecret: keys.google.clientSecret,
 },(accessToken,refreshToken,profile,done)=>{
     ////accessToken is a token given by google to us , refreshToken is a token which regenerate the accessToken which gets expired always after some time and done is a function which will run after this callback function is completed 
-
+    // console.log(profile)
     //now inside this callback function 
     // we check whether the user profile is stored in our database or not if not then we add this profile to our database and if yes then we just retreive the profile info from our database
     User.findOne({googleId:profile.id})
@@ -40,11 +40,39 @@ passport.use(new GoogleStrategy({
         }
         else
         {
+            //example of profile object that we got
+            // {
+            //     id: '117194862761284547296',
+            //     displayName: 'Pankaj Kumar',
+            //     name: { familyName: 'Kumar', givenName: 'Pankaj' },
+            //     photos: [
+            //       {
+            //         value: 'https://lh3.googleusercontent.com/a-/AOh14GhPTzpAYGceCsrSu7Z5Q7572cCoRAQutyix6VZFfQ=s96-c'
+            //       }
+            //     ],
+            //     provider: 'google',
+            //     _raw: '{\n' +
+            //       '  "sub": "117194862761284547296",\n' +
+            //       '  "name": "Pankaj Kumar",\n' +
+            //       '  "given_name": "Pankaj",\n' +
+            //       '  "family_name": "Kumar",\n' +
+            //       '  "picture": "https://lh3.googleusercontent.com/a-/AOh14GhPTzpAYGceCsrSu7Z5Q7572cCoRAQutyix6VZFfQ\\u003ds96-c",\n' +
+            //       '  "locale": "en-GB"\n' +
+            //       '}',
+            //     _json: {
+            //       sub: '117194862761284547296',
+            //       name: 'Pankaj Kumar',
+            //       given_name: 'Pankaj',
+            //       family_name: 'Kumar',
+            //       picture: 'https://lh3.googleusercontent.com/a-/AOh14GhPTzpAYGceCsrSu7Z5Q7572cCoRAQutyix6VZFfQ=s96-c',
+            //       locale: 'en-GB'
+            //     }
+            //   }
             //user is not in database
             new User({
                 username:profile.displayName, // this displayName property is provided by google
                 googleId:profile.id,
-                profileImg:profile._json.image.url
+                profileImg:profile.photos[0].value
             }).save().then(newUser=>{
                 done(null,newUser);
                 console.log("new user created:",newUser);

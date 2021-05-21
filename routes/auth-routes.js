@@ -4,7 +4,8 @@ const session=require("express-session")
 
 // auth/google route
 router.get("/google",passport.authenticate("google",{
-    scope:["profile"]
+    scope: ['https://www.googleapis.com/auth/plus.login',
+            'https://www.googleapis.com/auth/userinfo.email']
 }));
 
 // callback route for google to redirect when user grants permission at consent screen
