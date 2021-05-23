@@ -58,7 +58,8 @@ footer{
     margin-bottom: 2em;
 }
 .footer-left img{
-    width: 50%;
+    width: 66%;
+    margin-bottom: 23px;
 }
 h2{
     font-weight: 600;
@@ -80,7 +81,7 @@ h2{
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    flex-flex: row wrap;
+    flex-wrap: wrap;
 }
 .footer-right > *{
     flex: 50%;
