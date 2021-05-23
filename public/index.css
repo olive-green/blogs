@@ -2,8 +2,8 @@
         margin:0;
         padding:0;
         box-sizing: border-box;
-        background-color:#f2f8fb;
-        /* background-color:white; */
+        /* background-color:#f2f8fb; */
+        background-color:white;
        }
        .container{
          margin-bottom: 100px;
@@ -16,8 +16,8 @@
        }
       .blogGrid{
         width:95%;
-        /* margin-left:auto;
-        margin-right:auto; */
+        margin-left:auto;
+        margin-right:auto;
         margin-top: 50px;
         margin-bottom:40px;
         border-radius:15px;
@@ -54,7 +54,7 @@
       /* Cards */
         .card{
           position:relative;
-          width: 20rem;
+          width: 21rem;
           height: 32rem;
           display: inline-block;
           color:#fa9905;
@@ -99,6 +99,7 @@
         }
         .des p{
           padding:0px 14px; 
+          letter-spacing: 1px;
         }
         
         .readMore{
