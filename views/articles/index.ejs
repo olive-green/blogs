@@ -217,13 +217,12 @@
 
   <body>
     <div class="container">
-      <h1 class="blog-heading" style="margin-top:70px;">Welcome <%= user.username %><br> Blog Articles</h1>
+      <h1 class="blog-heading" style="margin-top:70px;">Blog Articles</h1>
+      <!-- <h3 style="margin-top: 50px; text-align:center"> Blog Articles</h3> -->
         <!-- articles -->
         <div class="blogGrid">  
         <% articles.forEach(article=>{ %>
-                <div class="blogBox"
-              
-                <!-- Apoorv Card design -->
+                
                 <div class="card">
                   <div class="image">
                     <img src="<%= article.image %>" alt="image of road"></div>
@@ -235,7 +234,6 @@
                     <a class="readMore" href="/articles/<%= article.id %>" class="btn btn-primary">Read More</a>
                   </div>
                </div>
-            </div>
         <% }) %>
         </div>
         <!-- New Article Btn -->

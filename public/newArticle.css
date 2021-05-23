@@ -1,4 +1,4 @@
-*{
+body{
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -26,6 +26,7 @@ section .container{
     align-items: center;
     justify-content: center;
     margin-bottom: 100px;
+
 }
 
 
@@ -68,6 +69,9 @@ section .container .user .formBx input,textarea{
     color:#fa9902;
     font-size:1.5rem;
    
+}
+section .container .user .formBx input:focus,textarea:focus{
+    border-radius: 0;
 }
 
 section .container .user .formBx textarea{
@@ -134,10 +138,31 @@ section .container .user .formBx textarea{
 @media (max-width:991px)
 {
     section .container{
-        max-width: 400px;
+        /* max-width: 682px; */
+        width:100%;
     }
 
-    section .container .user .formBx{
+    section .container .user {
         width:100%
     }
+    section .container .user .formBx input,textarea{
+        width:100%
+    }
+    
+    .control-buttons{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        width:100%;
+    }
+    .btn-danger{
+        width:100%;
+    }
+    .control-buttons .cancel,button{
+        /* text-align: center; */
+        display:block;
+        margin:10px;
+        width:100%;
+    }
+
 } 

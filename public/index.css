@@ -1,7 +1,9 @@
     body{
+        margin:0;
+        padding:0;
         box-sizing: border-box;
-        background-color:#c6e9fd;
-        background-color:white;
+        background-color:#f2f8fb;
+        /* background-color:white; */
        }
        .container{
          margin-bottom: 100px;
@@ -14,12 +16,12 @@
        }
       .blogGrid{
         width:95%;
-        margin-left:auto;
-        margin-right:auto;
+        /* margin-left:auto;
+        margin-right:auto; */
         margin-top: 50px;
         margin-bottom:40px;
         border-radius:15px;
-        padding: 30px 60px;
+        padding: 30px 1px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
 
@@ -86,11 +88,19 @@
           font-weight:1000;
           font-family:monospace;
         }
+        .title h3{
+          font-size:1.4rem;
+        }
         .des{
           text-align: center;
           margin-top: 3px;
           height: 9rem;
+          color:black;
         }
+        .des p{
+          padding:0px 14px; 
+        }
+        
         .readMore{
           position:absolute;
           bottom:10px;
@@ -109,10 +119,52 @@
          }
         .readMore:hover{
           background-color:white;
-          color: #48a0e4;
+          color: #48a0e4;                       
           transition: 2s;
         }
 
-        @media only screen  and (max-width:700px) {
-            
-        }
+        @media (max-width:700px){
+          .blogGrid{
+            grid-template-columns: auto;
+            width:90%;
+            padding:0;
+             
+          }          
+          .card{
+            width: 15rem;
+            height: 25rem;
+            border-top: 2px solid #5ed83f;
+          }
+          .image{
+              height:12rem;
+          }
+          .image img{
+            height:12rem;
+          }
+          .title{
+            color: black;
+            padding: 2px;
+            height: 3rem;
+            font-size: 1rem;
+          }
+          .title h3{
+            font-size:1rem;
+          }
+          .des{
+            margin-top:1rem;
+            height: 0;
+          }
+          .des p{
+            font-size: 12px;
+            color: #f11616;
+          }
+          .readMore{
+            bottom: 4px;
+            left: 15px;
+            font-size:1.2rem;
+            border: 1px solid #48a0e4;
+            padding: 5px 0px;
+            border-radius: 16px;
+            width: 84%;
+            }
+        }             

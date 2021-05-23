@@ -90,6 +90,9 @@ h2{
 .box a{
     color: #999;
 }
+.box a:hover{
+    color:white;
+}
 .footer-bottom{
     text-align: center;
     color: #999;

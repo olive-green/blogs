@@ -63,7 +63,7 @@ body{
     margin-right:auto;
 }
 .blog-img{
-    width:650px !important;
+    width:35rem !important;
     height:450px !important;
     border-radius: 20px;
 }
@@ -72,4 +72,21 @@ body{
     font-size:1.6rem;
     color:black;
     padding: 10px 55px;
+}
+
+@media only screen and (max-width:700px){
+    .blog-img{
+        width:100% !important;
+        height:inherit !important;
+        border-radius:0px;
+    }
+    .containerr{
+        width:90%;
+    }
+    .top-section{
+        margin-left:0px;
+    }
+    .blog-desc{
+        padding:0;
+    }
 }
