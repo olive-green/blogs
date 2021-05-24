@@ -1,246 +1,128 @@
 <%- include("./../partials/header") %>
-<link href="../../index.css" rel="stylesheet">
-  <!-- <style>
-    body {
-      box-sizing: border-box;
-      background-color: #0c0d0e;
-    }
+<!-- <link href="../../index.css" rel="stylesheet"> -->
+<style>
+  .blogHeading{
+    font-size:3.5rem;
+    margin-bottom:50px;
+  }
+  .blogGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .container {
-      margin-bottom: 100px;
-    }
-
-    .blog-heading {
-      font-size: 3.5rem;
-      color: #fa9905;
-      font-family: cursive;
-      text-align: center;
-    }
-
-    .blogGrid {
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 50px;
-      margin-bottom: 40px;
-      /* background-color: #fa9905;
-        background-color: #011c39; */
-      border: 4px solid #fa9905;
-      border-radius: 15px;
-      padding: 30px 60px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-
-    }
-
-    .new-article-section {
-      margin-top: 50px;
-      justify-content: center;
-    }
-
-    .new-article-btn {
-      border: 2px solid red;
-      display: block;
-      margin: 20px auto;
-      width: 200px;
-      padding: 10px;
-      font-size: 1.5rem;
-      border-radius: 7px;
-      font-family: sans-serif;
-
-    }
-
-    a {
-      color: #011c39;
-    }
-
-    .new-article-icon {
-      color: red;
-    }
-
-    .new-article-text {
-      margin-left: 30px;
-    }
-
-    /* Cards */
-    /* .card{
-          position:relative;
-          width: 20rem;
-          height: 28rem;
-          display: inline-block;
-          background-color: #393e46;
-          background-color: white;
-          color:#fa9905;
-          margin:40px;
-          box-shadow: 2px 1px 10px black;
-          border-top-right-radius: 5px;
-          border-top-left-radius: 5px;
+  .card {
+    padding:10px;
+    width: 60%;
+    display: flex;
+    border:2px solid black;
+    margin-top:40px;
+    box-shadow:4px 2px 2px 1px black;
+  }
+  .left{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:300px;
+    margin-left:10px;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .left img{
+    width:280px;
+    height:180px;
+  }
+  .card .right{
+    padding:5px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .right .title h3{
+    font-size:2.2rem;
+    margin-bottom: 15px;
+  }
+  .des p{
+    font-size:1.6rem;
+  }
+  .readMore{
+    font-size:1.5rem;
+    color:red;
+  }
+  .new-article-section{
+        margin-top:100px;
+        justify-content: center;
+      }
+      .new-article-btn{
+        border:2px solid red;
+        display:block;
+        margin:20px auto;
+        width:200px;
+        padding:10px;
+        font-size:1.5rem;
+        border-radius: 7px;
+        font-family: sans-serif;
+        
+      }
+      a{
+        color:#011c39;
+      }
+      .new-article-icon{
+         color:red;
+      }
+      .new-article-text{
+        margin-left:30px;
+      }
+      @media screen and (max-width:768px){
+        .card{
+          width:90%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
-        .image{
-          height:14rem;
+        .left{
+          width:80%;
         }
-        .image img{
-          width: 100%;
-          height:14rem;
-          border-top-right-radius: 5px;
-          border-top-left-radius: 5px;
+        .left img{
+          width:300px;
         }
-        .title{
-          text-align: center;
-          margin-top: 0.3rem;
-          padding: 5px;
-          height:5rem;
-          font-size:2rem;
-          font-weight:1000;
-          font-family:monospace;
-        }
-        .des{
-          text-align: center;
-          margin-top: 3px;
-          height: 9rem;
-        }
-        .readMore{
-          position:absolute;
-          bottom:10px;
-          right:5rem;
-          font-size:1.3rem;
-          text-decoration: none;
-          background-color: white;
-          border: 2px solid black;
-          padding-left: 0.2rem;
-          padding-right: 0.2rem;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          border-radius: 5px;
-          cursor: pointer;
-          width:10rem;
-          text-align: center;
-         }
-        .readMore:hover{
-          background-color: black;
-          color: white;
-          transition: 2s;
-        } */
+      }
+</style>
+</head>
 
-    /* new card design */
-    :root {
-      --clr-neutral-900: hsl(207, 19%, 9%);
-      --clr-neutral-100: hsl(0, 0%, 100%);
-      --clr-accent-400: hsl(142, 90%, 61%);
+<body>
+  <div class="container">
+    <h1 class="blogHeading" style="margin-top:70px;text-align: center;">Blog Articles</h1>
+    <!-- <h3 style="margin-top: 50px; text-align:center"> Blog Articles</h3> -->
+    <!-- articles -->
+    <div class="blogGrid">
+      <% articles.forEach(article=>{ %>
 
-    }
-
-    *::after {
-      box-sizing: border-box;
-    }
-    .card {
-      color: var(--clr-neutral-100);
-      background-size: cover;
-      padding: 10rem 0 0;
-      max-width: 35ch;
-      
-      /* width: 20rem;
-      height: 28rem; */
-  
-      border-radius: 0.5rem;
-      overflow: hidden;
-      transition: transform 500ms ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card-content {
-      --padding: 1.5rem;
-      padding: var(--padding);
-      background: linear-gradient(hsl(0 0% 0% / 0),
-          hsl(20 0% 0% / 0.3) 20%,
-          hsl(0 0% 0% / 1));
-      transform: translateY(65%);
-      transition: transform 500ms ease;
-    }
-    .card:hover .card-content {
-      transform: translateY(0);
-      transition-delay: 500ms;
-    }
-
-    .card-content>*:not(.card-title) {
-      opacity: 0;
-      transition: opacity 500ms linear;
-    }
-    .card:hover .card-content>*:not(.card-title) {
-      opacity: 1;
-      transition-delay: 1000ms;
-    }
-    .card-title {
-      position: relative;
-      width: max-content;
-    }
-    .card-title::after {
-      content: "";
-      position: absolute;
-      height: 4px;
-      left: calc(var(--padding) * -1);
-      bottom: -2px;
-      width: calc(100% +var(--padding));
-      background: var(--clr-accent-400);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: left;
-    }
-
-    .card:hover .card-title::after {
-      transform: scaleX(1);
-    }
-
-    .card-body {
-      color: rgb(255 255 255 / 0.8);
-    }
-
-    .card-button {
-      cursor: pointer;
-      display: inline-block;
-      text-decoration: none;
-      color: var(--clr-neutral-900);
-      background-color: var(--clr-accent-400);
-      padding: 0.5em 1.25em;
-      border-radius: 0.25rem;
-    }
-
-    .card-button:hover,
-    .card-button:focus {
-      background-color: var(--clr-neutral-100);
-    }
-  </style> -->
-  </head>
-
-  <body>
-    <div class="container">
-      <h1 class="blog-heading" style="margin-top:70px;">Blog Articles</h1>
-      <!-- <h3 style="margin-top: 50px; text-align:center"> Blog Articles</h3> -->
-        <!-- articles -->
-        <div class="blogGrid">  
-        <% articles.forEach(article=>{ %>
-                
-                <div class="card">
-                  <div class="image">
-                    <img src="<%= article.image %>" alt="image of road"></div>
-                  <div class="title">
-                    <h3><%= article.title %></h3>
-                  </div>
-                  <div class="des">
-                    <p><%= article.Shortdescription %></p>
-                    <a class="readMore" href="/articles/<%= article.id %>" class="btn btn-primary">Read More</a>
-                  </div>
-               </div>
-        <% }) %>
+      <div class="card">
+        <div class="left">
+          <img src="<%= article.image %>" alt="image of road">
         </div>
-        <!-- New Article Btn -->
-        <div class="new-article-section">
-          <h2 style="text-align:center;font-size:2.3rem;color:red;">You can Write too!</h2>
-        <a href="/articles/new" class="new-article-btn"><span class="new-article-icon"><i class="fa fa-plus" aria-hidden="true"></i></span><span class="new-article-text">New Article</span></a>
-       </div>
+        <div class="right">
+          <div class="title">
+            <h3><%= article.title %></h3>
+          </div>
+          <div class="des">
+            <p><%= article.Shortdescription %></p>
+            <a class="readMore" href="/articles/<%= article.id %>" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
     </div>
+    <!-- New Article Btn -->
+    <div class="new-article-section">
+      <h2 style="text-align:center;font-size:2.3rem;color:red;">You can Write too!</h2>
+      <a href="/articles/new" class="new-article-btn"><span class="new-article-icon"><i class="fa fa-plus"
+            aria-hidden="true"></i></span><span class="new-article-text">New Article</span></a>
+    </div>
+  </div>
 
-    <%- include("./../partials/footer") %>
+  <%- include("./../partials/footer") %>
