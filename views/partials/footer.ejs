@@ -1,7 +1,117 @@
-<!--Footer Section -->
-  <footer class="footer">
+<style>
+  main{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: #9b9b9b;
+    line-height: 3.8;
+   
+    text-transform: uppercase;
+    font-weight: strong;
+}
+footer{
+  margin-top:100px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 50px;
+    color: #fff;
+    background-color: #011c39;
+}
+.footer > *{
+    flex: 1 100%;
+}
+.footer-left{
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+}
+.footer-left img{
+    width: 50%;
+}
+h2{
+    font-weight: 600;
+    font-size: 17px;
+}
+.footer ul{
+    list-style: none;
+    padding-left: 0;
+}
+.footer li{
+    line-height: 2em;
+}
+.footer a{
+    text-decoration: none;
+}
+.footer-right{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex: row wrap;
+}
+.footer-right > *{
+    flex: 50%;
+    margin-right: 1.25em;
+}
+.box a{
+    color: #999;
+}
+.footer-bottom{
+    text-align: center;
+    color: #999;
+    padding-top: 50px;
+}
+.footer-left p{
+    padding-right: 20%;
+    color: #999;
+}
+.socials a{
+    background: #364a62;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.socials a i{
+    color: #e7f2d4;
+    padding: 10px 12px;
+    font-size: 20px;
+}
+@media screen and (min-width: 600px) {
+    .footer-right > *{
+        flex: 1;
+    }
+    .footer-left{
+        flex: 1 0px;
+    }
+    .footer-right{
+        flex: 2 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer{
+        padding: 15px;
+    }
+    .main{
+        font-size: 55px;
+    }
+}                                                                                                  Footer CSS */
+
+</style>
+<!-- Footer Section -->
+<footer class="footer">
     <div class="footer-left">
-      <img src="../../logo.png" alt="">
+      <img src="" alt="">
       <p>A special platform for  defence aspirants which helps them to prepare for SSB Interview, written exams and many more.
       </p>
       <div class="socials">
@@ -16,7 +126,7 @@
         <h2>Services</h2>
 
         <ul class="box">
-          <li><a href="https://ssb-blogs.herokuapp.com/">Blogs</a></li>
+          <li><a href="#">Blogs</a></li>
           <li><a href="#">Quizzes</a></li>
           <li><a href="#">Mentorship</a></li>
           <li><a href="#">Ask your Doubt</a></li>
@@ -30,31 +140,41 @@
           <li><a href="https://indianairforce.nic.in/">Carrer Airforce</a></li>
           <li><a href="https://www.joinindiannavy.gov.in/">Join Indian Navy</a></li>
           <li><a href="https://www.joinindiancoastguard.gov.in/">Join Indian Coast Guard</a></li>
-          <li><a href="#">SsbComrade.com</a></li>
+          <li><a href="#">SSBSelection.com</a></li>
         </ul>
       </li>
       <li>
         <h2>Contact Us</h2>
          <ul class="box">
-          <li><i class="fa fa-globe"></i>&nbsp;<span style="color:#999">
-            JSS Academy of <br>Technical Education <br>
-            112,Sector-62,Noida, <br>
-            Opposite AKTU Arts College, <br>
-            Gautam Buddha Nagar - 201301 (U.P) <br>
+          <li><i class="fa fa-globe"></i><span>
+            Universal Counselling Centre <br>
+            H/C – 317, Ganga Nagar, <br>
+            Opposite Greater Ganga Colony, <br>
+            Meerut Cantt - 250001 (U.P) <br>
             INDIA
           </span></li>
-          <li><i class="fa fa-phone"></i>&nbsp;<span>
-            <a href="tel:+919205878028">+91 9205878028</a>
+          <li><i class="fa fa-phone"></i><span>
+            <a href="tel:+919319302151">Call us: +91 9319302151</a>
           </span></li>
-          <li><i class="fa fa-envelope-o"></i>&nbsp;<span>
-            <a href="mailto:ssbcomrade@gmail.com">ssbcomrade@gmail.com </a>
+          <li><i class="fa fa-envelope-o"></i><span>
+            <a href="mailto:pk1853894@gmail.com"> pk1853894@gmail.com </a>
           </span></li>
         </ul>
       </li>
     </ul>
     <div class="footer-bottom">
-      <p>All rights reserved by &copy;SsbComrade.com </p>
+      <p>All rights reserved by &copy;SSBSelection.com </p>
     </div>
   </footer>  
-</body>
-</html>
+  
+  <script>
+  $('.ui.dropdown')
+    .dropdown()
+    ;
+     // Jquery code to trigger sidebar on clicking hamburger icon
+  $(document).ready(function () {
+    // create sidebar and attach to menu open
+    $(".ui.sidebar").sidebar("attach events", ".toc.item");
+  });
+  
+</script>
