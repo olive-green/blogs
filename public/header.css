@@ -19,12 +19,12 @@
 
 /*     Footer CSS */
 /*This is a CSS file*/
-body{
+/* body{
     font-family: poppins;
     margin: 0;
     display: grid;
-    font-size: 14px;
-}
+    font-size: 14px; 
+} */
 main{
     display: -webkit-flex;
     display: -moz-flex;
@@ -133,4 +133,4 @@ h2{
     .main{
         font-size: 55px;
     }
-}
+} 
