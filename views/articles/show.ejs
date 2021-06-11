@@ -23,12 +23,7 @@
                         <h3 class="uk-card-title uk-margin-remove-bottom"><%= article.author %></h3>
                         <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00"><%= article.createdAt.toLocaleString() %></time></p>
                     </div>
-                    <% if(article.googleId==user.googleId){ %>
-                        <a href="/articles/edit/<%= article.id %>" class="uk-button uk-button-primary">Edit</a>
-                <form action="/articles/<%= article.id %>?_method=DELETE"  method="POST">
-                    <input type="submit" class="uk-button uk-button-danger" value="Delete">
-                </form>
-                   <% } %>
+                    
                 </div>
             </div>
             <div class="uk-card-media-top">
@@ -37,6 +32,14 @@
             <div class="uk-card-body">
                 <h3 class="uk-card-title"><%= article.title %></h3>
                 <p><%= article.Fulldescription %></p>
+                <div style="margin-top: 60px;">
+                    <% if(article.googleId==user.googleId){ %>
+                        <a href="/articles/edit/<%= article.id %>" class="uk-button uk-button-primary uk-margin-right" style="float:left;">Edit</a>
+                <form action="/articles/<%= article.id %>?_method=DELETE"  method="POST">
+                    <input type="submit" class="uk-button uk-button-danger" value="Delete">
+                </form>
+                   <% } %>
+                </div>
             </div>
 
         </div>
