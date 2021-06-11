@@ -23,8 +23,8 @@ passport.deserializeUser((id,done)=>{
 
 passport.use(new GoogleStrategy({
     //options for google Strategy
-    callbackURL:"https://ssb-blogs.herokuapp.com/auth/google/redirect",
-    // callbackURL:"/auth/google/redirect",
+    // callbackURL:"https://ssb-blogs.herokuapp.com/auth/google/redirect",
+    callbackURL:"/auth/google/redirect",
     clientID: keys.google.clientID,
     clientSecret: keys.google.clientSecret,
 },(accessToken,refreshToken,profile,done)=>{
@@ -73,7 +73,8 @@ passport.use(new GoogleStrategy({
             new User({
                 username:profile.displayName, // this displayName property is provided by google
                 googleId:profile.id,
-                profileImg:profile.photos[0].value
+                profileImg:profile.photos[0].value,
+                // email:profile.emails[0]
             }).save().then(newUser=>{
                 done(null,newUser);
                 console.log("new user created:",newUser);

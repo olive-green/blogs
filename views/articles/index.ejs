@@ -11,8 +11,19 @@
     align-items: center;
     justify-content: center;
   }
+  .uk-grid{
+    /* display: block; */
+    margin:50px 29px;
+  }
 
-  .card {
+  @media screen and (min-width:768px) {
+    .uk-grid{
+      margin:49px 260px;
+    }
+  }
+  
+
+  /* .card {
     padding:10px;
     width: 60%;
     display: flex;
@@ -47,14 +58,15 @@
   }
   .des p{
     font-size:1.6rem;
-  }
-  .readMore{
+  } */
+  /* .readMore{
     font-size:1.5rem;
     color:red;
-  }
+  } */
   .new-article-section{
         margin-top:100px;
         justify-content: center;
+        text-decoration: none;
       }
       .new-article-btn{
         border:2px solid red;
@@ -69,6 +81,7 @@
       }
       a{
         color:#011c39;
+        
       }
       .new-article-icon{
          color:red;
@@ -76,7 +89,7 @@
       .new-article-text{
         margin-left:30px;
       }
-      @media screen and (max-width:768px){
+      /* @media screen and (max-width:768px){
         .card{
           width:90%;
           flex-direction: column;
@@ -89,7 +102,7 @@
         .left img{
           width:300px;
         }
-      }
+      } */
 </style>
 </head>
 
@@ -98,10 +111,24 @@
     <h1 class="blogHeading" style="margin-top:70px;text-align: center;">Blog Articles</h1>
     <!-- <h3 style="margin-top: 50px; text-align:center"> Blog Articles</h3> -->
     <!-- articles -->
-    <div class="blogGrid">
+    <!-- <div class="blogGrid"> -->
+      <!-- <div class="uk-child-width-1-2@m" uk-grid > -->
       <% articles.forEach(article=>{ %>
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-card-hover" uk-grid>
+          <div class="uk-card-media-left uk-cover-container">
+              <img src="<%= article.image %>" alt="" uk-cover>
+              <canvas width="600" height="400"></canvas>
+          </div>
+          <div>
+              <div class="uk-card-body">
+                  <h3 class="uk-card-title"><%= article.title %></h3>
+                  <p><%= article.Shortdescription %></p>
+                  <a href="/articles/<%= article.id %>" class="uk-button uk-button-text">Read more</a>
+              </div>
+          </div>
+      </div>
 
-      <div class="card">
+      <!-- <div class="card">
         <div class="left">
           <img src="<%= article.image %>" alt="image of road">
         </div>
@@ -114,9 +141,25 @@
             <a class="readMore" href="/articles/<%= article.id %>" class="btn btn-primary">Read More</a>
           </div>
         </div>
-      </div>
+      </div> -->
+
+<!--       
+        <div style="margin: 20px auto;">
+            <div class="uk-card uk-card-default uk-card-hover" >
+      
+                <div class="uk-card-media-top">
+                    <img src="<%= article.image %>" alt="">
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title"><%= article.title %></h3>
+                    <p><%= article.Shortdescription %></p>
+                </div>
+            </div>
+        </div> -->
+       
+
       <% }) %>
-    </div>
+    <!-- </div> -->
     <!-- New Article Btn -->
     <div class="new-article-section">
       <h2 style="text-align:center;font-size:2.3rem;color:red;">You can Write too!</h2>

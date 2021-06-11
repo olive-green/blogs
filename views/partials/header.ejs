@@ -18,6 +18,11 @@
     <!--Custom Stylesheet -->
     <link rel="stylesheet" href="./../header.css">
     <link rel="stylesheet" href=<%= cssFile %>>
+    <!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
 </head>
 <style>
   .toc.item {
@@ -84,10 +89,13 @@
     </a>
     <div class="right menu">
       <a href="/" class="item ui large secondary tertiary button">
-        SsbComrade
+        Home
       </a>
-      <a href="/contribute" class="item ui large secondary tertiary button">
+      <a href="https://fsb-quiz.herokuapp.com/" class="item ui large secondary tertiary button">
         Practice
+      </a>
+      <a href="https://ssbcomrade.herokuapp.com/" class="item ui large secondary tertiary button">
+        SsbComrade
       </a>
       <a href="/auth/logout" class="item ui large secondary tertiary button">
         Logout  
@@ -105,10 +113,10 @@
 
   <!-- Sidebar Menu -->
   <div class="ui vertical sidebar menu">
-    <a class="item" href="/blogs">Blogs</a>
-    <a class="item" href="/resources">Resources</a>
-    <a class="item" href="/community">Community</a>
-    <a class="item" href="/contribute">Contribute</a>
+    <a class="item" href="/blogs">Home</a>
+    <a class="item" href="/articles/new">Write a Article</a>
+    <a class="item" href="https://fsb-quiz.herokuapp.com/">Practice</a>
+    <a class="item" href="/auth/logout"> Logout  </a>
 
   </div>
   <!-- Sidebar menu ends  -->

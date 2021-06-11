@@ -128,7 +128,14 @@ h2{
 
 @media (max-width: 600px) {
     .footer{
-        padding: 15px;
+        padding: 47px;
+    }
+    .footer-left{
+        margin-right: 0;
+    }
+    .footer-left img{
+        width: 100%;
+        margin-bottom: 23px;
     }
     .main{
         font-size: 55px;
