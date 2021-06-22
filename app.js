@@ -7,7 +7,6 @@ const mongoose=require('mongoose')
 const Article=require('./models/article.js')
 const methodOverride=require("method-override");
 const cors=require('cors')
-const keys=require("./config/keys");
 const passport=require("passport")
 //importing passport-setup.js to run google strategy
 const passportSetup=require("./config/passport-setup");
