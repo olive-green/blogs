@@ -3,6 +3,7 @@ const keys= require("./keys")
 const User=require("../models/user.js");
 const GoogleStrategy=require("passport-google-oauth20");
 const HttpsProxyAgent = require('https-proxy-agent');
+require("dotenv").config();
 
 //create cookies
 passport.serializeUser((user,done)=>{
@@ -25,8 +26,8 @@ passport.use(new GoogleStrategy({
     //options for google Strategy
     callbackURL:"https://ssb-blogs.herokuapp.com/auth/google/redirect",
 //     callbackURL:"/auth/google/redirect",
-    clientID: keys.google.clientID,
-    clientSecret: keys.google.clientSecret,
+    clientID: process.env.clientID,
+    clientSecret: process.env.clientSecret,
 },(accessToken,refreshToken,profile,done)=>{
     ////accessToken is a token given by google to us , refreshToken is a token which regenerate the accessToken which gets expired always after some time and done is a function which will run after this callback function is completed 
     // console.log(profile)
@@ -74,7 +75,7 @@ passport.use(new GoogleStrategy({
                 username:profile.displayName, // this displayName property is provided by google
                 googleId:profile.id,
                 profileImg:profile.photos[0].value,
-                // email:profile.emails[0]
+                email:profile.emails[0].value
             }).save().then(newUser=>{
                 done(null,newUser);
                 console.log("new user created:",newUser);

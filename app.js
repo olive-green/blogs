@@ -13,12 +13,14 @@ const passport=require("passport")
 const passportSetup=require("./config/passport-setup");
 const cookieSession=require("cookie-session")
 
+require("dotenv").config();
+
 const port= process.env.PORT || 3000
 
 
 //connect database
 // mongoose.connect("mongodb+srv://pankaj:snSC0vbIgRWi3pme@cluster0.82akh.mongodb.net/blogs?retryWrites=true&w=majority",{useNewUrlParser:true,useUnifiedTopology:true})
-mongoose.connect(keys.mongodb.dbURL,{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect(process.env.dbURL,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>console.log("database connected successfully"))
 .catch((err)=>console.log(err))
 
@@ -36,7 +38,7 @@ app.use(methodOverride("_method"))
 //setting cookies
 app.use(cookieSession({
     maxAge:24*60*60*1000,
-    keys:[keys.session.key] //import encrypted key from keys
+    keys:[process.env.key] //import encrypted key from keys
 }))
 
 //initialize passport
