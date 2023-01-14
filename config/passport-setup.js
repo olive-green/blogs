@@ -23,7 +23,7 @@ passport.deserializeUser((id,done)=>{
 
 passport.use(new GoogleStrategy({
     //options for google Strategy
-    callbackURL:"https://ssb-blogs.herokuapp.com/auth/google/redirect",
+    callbackURL:"https://ssb-blogs.onrender.com/auth/google/redirect",
 //     callbackURL:"/auth/google/redirect",
     clientID: process.env.clientID,
     clientSecret: process.env.clientSecret,
